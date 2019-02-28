@@ -111,10 +111,12 @@ $opciones = [
 
             <div class="row">
             	<div class="col-md-6">
-                
-
+        
+<?php 
+$this->Form->setTemplates(['radioWrapper' => '<label class="col-md-6">{{label}}</label>']);
+?>
             		<label>Estilo</label>
-                <div class="checkbox">
+                <div class="radio">
                   
                 <?php 
 $options = [
@@ -130,14 +132,12 @@ $options = [
 'Impresionismo' => '10:Impresionismo',
 'Expresionista' => '11:Expresionista',
 'Cubista' => '12:Cubista',
-'Otros' => '13:Otros',
+'Otros' => '13:Otros'
 ];
-echo $this->Form->select('ides_estilo', $options, [
-    'multiple' => 'checkbox'
-]);
+echo $this->Form->radio('ides_estilo', $options);
                 ?>
                 </div>
-
+                <?php echo $this->Form->text('iden_estilo_otros', ['class' => 'form-control','placeholder' => 'Otros']);?>
             	</div>
 
             	<div class="col-md-6">
@@ -148,10 +148,12 @@ $opciones = [
 '' => '',
 'Escuela potosina' => 'Escuela potosina',
 'Escuela cuzqueña' => 'Escuela cuzqueña',
+'Escuela collao' => 'Escuela collao',
 'Otros' => 'Otros',
 ];                
 echo $this->Form->select('iden_escuela', $opciones, ['class' => 'form-control']);?> 
-
+<br>
+<?php echo $this->Form->text('iden_escuela_otros', ['class' => 'form-control','placeholder' => 'Otros']);?>
             	</div>
 
             </div>
@@ -202,10 +204,14 @@ echo $this->Form->select('iden_escuela', $opciones, ['class' => 'form-control'])
                 	<div class="col-md-6">
 
                 	</div>
-                	<div class="col-md-6">
-                			<label for="exampleInputEmail1">COMUNIDAD/CIUDAD</label>
+                	<div class="col-md-3">
+                			<label for="exampleInputEmail1">COMUNIDAD</label>
                       <?php echo $this->Form->text('loc_comunidad', ['class' => 'form-control']);?>
                 	</div>
+                  <div class="col-md-3">
+                      <label for="exampleInputEmail1">CIUDAD</label>
+                      <?php echo $this->Form->text('loc_ciudad', ['class' => 'form-control']);?>
+                  </div>
             	</div>
 
 
@@ -288,7 +294,7 @@ $options = [
 'Adquisición' => '5: Adquisición',
 'Otros,especifique' => '6: Otros,especifique',
 'Persona o entidad que entregó la pieza' => '7: Persona o entidad que entregó lieza',
-'Tipo de documento de entrega' => '8: Tipo de documento de entrega',
+// 'Tipo de documento de entrega' => '8: Tipo de documento de entrega',
 ];
 echo $this->Form->select('marc_forma_ing', $options, [
     'multiple' => 'checkbox'
@@ -300,7 +306,7 @@ echo $this->Form->select('marc_forma_ing', $options, [
                     <?php echo $this->Form->text('marc_forma_ing_texto', ['class' => 'form-control']);?>
           			</div>
 
-          			<div class="col-md-6" id="iddiv-tipo-doc" style="display: none;">
+          			<div class="col-md-6" id="iddiv-tipo-doc" >
             		<label> 8: Tipo de documento de entrega</label>
                 		<div class="checkbox">
 
@@ -529,12 +535,15 @@ $options = [
 'Tocuyo' => 'Tocuyo',
 'Vidrio' => 'Vidrio',
 'Piedra' => 'Piedra',
+'Papel' => 'Papel',
+'Madera' => 'Madera',
 'Otros' => 'Otros',
 ];
 echo $this->Form->select('detalles[op_1_1][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_1][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_1][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_1][0][id]', ['type' => 'hidden']); ?>
 
@@ -563,6 +572,7 @@ echo $this->Form->select('detalles[op_1_1][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_1][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_1][1][titulo]', ['type' => 'hidden','value' => 'Tecnica']); ?>
 <?php echo $this->Form->control('detalles[op_1_1][1][id]', ['type' => 'hidden']); ?>
 
@@ -596,6 +606,7 @@ echo $this->Form->select('detalles[op_1_2][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_2][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_2][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_2][0][id]', ['type' => 'hidden']); ?>
 
@@ -604,7 +615,7 @@ echo $this->Form->select('detalles[op_1_2][0][detalle]', $options, [
   </div>
 
   <div class="col-md-4">
-    <label>Tecnica</label>
+    <label></label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -620,6 +631,7 @@ echo $this->Form->select('detalles[op_1_2][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_2][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_2][1][titulo]', ['type' => 'hidden','value' => 'Tecnica']); ?>
 <?php echo $this->Form->control('detalles[op_1_2][1][id]', ['type' => 'hidden']); ?>
 
@@ -627,7 +639,7 @@ echo $this->Form->select('detalles[op_1_2][1][detalle]', $options, [
     </div>
   </div>
     <div class="col-md-4">
-    <label>Arte del dibujo</label>
+    <label>Tecnica</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -641,6 +653,7 @@ echo $this->Form->select('detalles[op_1_2][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_2][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_2][2][titulo]', ['type' => 'hidden','value' => 'Arte del dibujo']); ?>
 <?php echo $this->Form->control('detalles[op_1_2][2][id]', ['type' => 'hidden']); ?>
 
@@ -688,6 +701,7 @@ echo $this->Form->select('detalles[op_1_3][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_3][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_3][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_3][0][id]', ['type' => 'hidden']); ?>
 
@@ -714,6 +728,7 @@ echo $this->Form->select('detalles[op_1_3][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_3][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_3][1][titulo]', ['type' => 'hidden','value' => 'Tipo de escultura']); ?>
 <?php echo $this->Form->control('detalles[op_1_3][1][id]', ['type' => 'hidden']); ?>
 
@@ -739,6 +754,7 @@ echo $this->Form->select('detalles[op_1_3][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_3][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_3][2][titulo]', ['type' => 'hidden','value' => 'Técnica 1']); ?>
 <?php echo $this->Form->control('detalles[op_1_3][2][id]', ['type' => 'hidden']); ?>
 
@@ -762,6 +778,7 @@ echo $this->Form->select('detalles[op_1_3][3][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_3][3][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_3][3][titulo]', ['type' => 'hidden','value' => 'Técnica 2']); ?>
 <?php echo $this->Form->control('detalles[op_1_3][3][id]', ['type' => 'hidden']); ?>
 
@@ -791,6 +808,7 @@ echo $this->Form->select('detalles[op_1_4][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_4][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_4][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_4][0][id]', ['type' => 'hidden']); ?>
 
@@ -819,6 +837,7 @@ echo $this->Form->select('detalles[op_1_4][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_4][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_4][1][titulo]', ['type' => 'hidden','value' => 'Tecnica']); ?>
 <?php echo $this->Form->control('detalles[op_1_4][1][id]', ['type' => 'hidden']); ?>
 
@@ -842,6 +861,7 @@ echo $this->Form->select('detalles[op_1_5][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_5][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_5][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_5][0][id]', ['type' => 'hidden']); ?>
 
@@ -867,6 +887,7 @@ echo $this->Form->select('detalles[op_1_5][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_5][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_5][1][titulo]', ['type' => 'hidden','value' => 'Tecnica']); ?>
 <?php echo $this->Form->control('detalles[op_1_5][1][id]', ['type' => 'hidden']); ?>
 
@@ -896,6 +917,7 @@ echo $this->Form->select('detalles[op_1_6][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_6][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_6][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_6][0][id]', ['type' => 'hidden']); ?>
 
@@ -924,6 +946,7 @@ echo $this->Form->select('detalles[op_1_6][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_6][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_6][1][titulo]', ['type' => 'hidden','value' => 'Tecnica']); ?>
 <?php echo $this->Form->control('detalles[op_1_6][1][id]', ['type' => 'hidden']); ?>
 
@@ -952,6 +975,7 @@ echo $this->Form->select('detalles[op_1_7][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_7][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_7][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_1_7][0][id]', ['type' => 'hidden']); ?>
 
@@ -973,6 +997,7 @@ echo $this->Form->select('detalles[op_1_7][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_7][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_7][1][titulo]', ['type' => 'hidden','value' => 'Tecnica']); ?>
 <?php echo $this->Form->control('detalles[op_1_7][1][id]', ['type' => 'hidden']); ?>
 
@@ -980,7 +1005,7 @@ echo $this->Form->select('detalles[op_1_7][1][detalle]', $options, [
     </div>
   </div>
   <div class="col-md-4">
-    <label class="col-md-12">Arte</label>
+    <label class="col-md-12">Tecnica 2</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -993,6 +1018,7 @@ echo $this->Form->select('detalles[op_1_7][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_1_7][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_1_7][2][titulo]', ['type' => 'hidden','value' => 'Arte']); ?>
 <?php echo $this->Form->control('detalles[op_1_7][2][id]', ['type' => 'hidden']); ?>
 
@@ -1027,6 +1053,7 @@ echo $this->Form->select('detalles[op_2_1][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_1][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_1][0][titulo]', ['type' => 'hidden','value' => 'Bienes']); ?>
 <?php echo $this->Form->control('detalles[op_2_1][0][id]', ['type' => 'hidden']); ?>
 
@@ -1047,12 +1074,15 @@ $options = [
 'Cobre' =>'Cobre',
 'Oro' =>'Oro',
 'Plata' =>'Plata',
+'Vidrio' =>'Vidrio',
+'Cristal de roca' =>'Cristal de roca',
 'Otros' =>'Otros',
 ];
 echo $this->Form->select('detalles[op_2_1][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_1][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_1][1][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_1][1][id]', ['type' => 'hidden']); ?>
 
@@ -1101,6 +1131,7 @@ echo $this->Form->select('detalles[op_2_2_1][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_2_1][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_2_1][0][titulo]', ['type' => 'hidden','value' => 'Bienes']); ?>
 <?php echo $this->Form->control('detalles[op_2_2_1][0][id]', ['type' => 'hidden']); ?>
 
@@ -1112,7 +1143,7 @@ $this->Form->setTemplates(['checkboxWrapper' => '<label class="col-md-12">{{labe
 ?>
   <div class="col-md-4">
     <label>Material</label>
-    <div class="radio">
+    <div class="checkbox">
       <?php 
 $options = [
 'Sintético' => 'Sintético',
@@ -1125,6 +1156,7 @@ echo $this->Form->select('detalles[op_2_2_1][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_2_1][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_2_1][1][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_2_1][1][id]', ['type' => 'hidden']); ?>
 
@@ -1156,6 +1188,7 @@ echo $this->Form->select('detalles[op_2_2_2][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_2_2][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_2_2][0][titulo]', ['type' => 'hidden','value' => 'Bienes']); ?>
 <?php echo $this->Form->control('detalles[op_2_2_2][0][id]', ['type' => 'hidden']); ?>
 
@@ -1179,6 +1212,7 @@ echo $this->Form->select('detalles[op_2_2_2][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_2_2][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_2_2][1][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_2_2][1][id]', ['type' => 'hidden']); ?>
 
@@ -1250,6 +1284,7 @@ echo $this->Form->select('detalles[op_2_3][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_3][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_3][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_3][0][id]', ['type' => 'hidden']); ?>
 
@@ -1285,6 +1320,7 @@ echo $this->Form->select('detalles[op_2_4][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_4][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_4][0][titulo]', ['type' => 'hidden','value' => 'Bienes']); ?>
 <?php echo $this->Form->control('detalles[op_2_4][0][id]', ['type' => 'hidden']); ?>
 
@@ -1311,6 +1347,7 @@ echo $this->Form->select('detalles[op_2_4][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_4][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_4][1][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_4][1][id]', ['type' => 'hidden']); ?>
 
@@ -1351,6 +1388,7 @@ echo $this->Form->select('detalles[op_2_5][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_5][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_5][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_5][0][id]', ['type' => 'hidden']); ?>
 
@@ -1380,6 +1418,7 @@ echo $this->Form->select('detalles[op_2_5][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_5][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_5][1][titulo]', ['type' => 'hidden','value' => 'Material para Biene de Joyas']); ?>
 <?php echo $this->Form->control('detalles[op_2_5][1][id]', ['type' => 'hidden']); ?>
 
@@ -1401,6 +1440,7 @@ echo $this->Form->select('detalles[op_2_5][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_5][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_5][2][titulo]', ['type' => 'hidden','value' => 'Técnica para Biene de Joyas']); ?>
 <?php echo $this->Form->control('detalles[op_2_5][2][id]', ['type' => 'hidden']); ?>
 
@@ -1429,6 +1469,7 @@ echo $this->Form->select('detalles[op_2_6][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_6][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_6][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_6][0][id]', ['type' => 'hidden']); ?>
 
@@ -1438,7 +1479,7 @@ echo $this->Form->select('detalles[op_2_6][0][detalle]', $options, [
 $this->Form->setTemplates(['checkboxWrapper' => '<label class="col-md-4">{{label}}</label>']);
 ?>
   <div class="col-md-8">
-    <label>Técnica</label>
+    <label>Nombre generico</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -1465,6 +1506,7 @@ echo $this->Form->select('detalles[op_2_6][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_6][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_6][1][titulo]', ['type' => 'hidden','value' => 'Técnica']); ?>
 <?php echo $this->Form->control('detalles[op_2_6][1][id]', ['type' => 'hidden']); ?>
 
@@ -1492,13 +1534,14 @@ echo $this->Form->select('detalles[op_2_7][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_7][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_7][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_7][0][id]', ['type' => 'hidden']); ?>
 
     </div>
   </div>
   <div class="col-md-6">
-    <label>Técnica</label>
+    <label>Nombre generico</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -1519,6 +1562,7 @@ echo $this->Form->select('detalles[op_2_7][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_7][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_7][1][titulo]', ['type' => 'hidden','value' => 'Técnica']); ?>
 <?php echo $this->Form->control('detalles[op_2_7][1][id]', ['type' => 'hidden']); ?>
 
@@ -1543,6 +1587,7 @@ echo $this->Form->select('detalles[op_2_8][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_8][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_8][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_8][0][id]', ['type' => 'hidden']); ?>
 
@@ -1564,6 +1609,7 @@ echo $this->Form->select('detalles[op_2_8][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_8][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_8][1][titulo]', ['type' => 'hidden','value' => 'Clasificación']); ?>
 <?php echo $this->Form->control('detalles[op_2_8][1][id]', ['type' => 'hidden']); ?>
 
@@ -1573,7 +1619,7 @@ echo $this->Form->select('detalles[op_2_8][1][detalle]', $options, [
 $this->Form->setTemplates(['checkboxWrapper' => '<label class="col-md-6">{{label}}</label>']);
 ?>
   <div class="col-md-6">
-    <label>Técnica</label>
+    <label>Nombre generico</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -1601,6 +1647,7 @@ echo $this->Form->select('detalles[op_2_8][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_8][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_8][2][titulo]', ['type' => 'hidden','value' => 'Técnica']); ?>
 <?php echo $this->Form->control('detalles[op_2_8][2][id]', ['type' => 'hidden']); ?>
 
@@ -1613,7 +1660,7 @@ echo $this->Form->select('detalles[op_2_8][2][detalle]', $options, [
 
 <div class="form-group divo row oculto" id="op_2_9" >
   <div class="col-md-6">
-    <label>Persona encargada</label>
+    <label>Institucion</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -1634,6 +1681,7 @@ echo $this->Form->select('detalles[op_2_9][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_9][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_9][0][titulo]', ['type' => 'hidden','value' => 'Persona encargada']); ?>
 <?php echo $this->Form->control('detalles[op_2_9][0][id]', ['type' => 'hidden']); ?>
 
@@ -1660,6 +1708,7 @@ echo $this->Form->select('detalles[op_2_9][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_9][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_9][1][titulo]', ['type' => 'hidden','value' => 'Forma']); ?>
 <?php echo $this->Form->control('detalles[op_2_9][1][id]', ['type' => 'hidden']); ?>
 
@@ -1674,7 +1723,7 @@ $options = [
 'Con relieve' => 'Con relieve',
 'Esmaltado' => 'Esmaltado',
 'Modelado' => 'Modelado',
-'Moldeado' => 'Moldeado',
+'Repujado' => 'Repujado',
 'Pintado' => 'Pintado',
 'Tallado' => 'Tallado',
 'Vaciado' => 'Vaciado',
@@ -1684,6 +1733,7 @@ echo $this->Form->select('detalles[op_2_9][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_9][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_9][2][titulo]', ['type' => 'hidden','value' => 'Técnica']); ?>
 <?php echo $this->Form->control('detalles[op_2_9][2][id]', ['type' => 'hidden']); ?>
 
@@ -1708,6 +1758,7 @@ echo $this->Form->select('detalles[op_2_10][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_10][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_10][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_10][0][id]', ['type' => 'hidden']); ?>
 
@@ -1735,6 +1786,7 @@ echo $this->Form->select('detalles[op_2_11][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_11][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_11][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_11][0][id]', ['type' => 'hidden']); ?>
 
@@ -1762,6 +1814,7 @@ echo $this->Form->select('detalles[op_2_12_4][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_4][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_4][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_4][0][id]', ['type' => 'hidden']); ?>
 
@@ -1786,6 +1839,7 @@ echo $this->Form->select('detalles[op_2_12_5][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_5][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_5][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_5][0][id]', ['type' => 'hidden']); ?>
 
@@ -1807,6 +1861,7 @@ echo $this->Form->select('detalles[op_2_12_6][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_6][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_6][0][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_6][0][id]', ['type' => 'hidden']); ?>
 
@@ -1825,6 +1880,7 @@ echo $this->Form->select('detalles[op_2_12_6][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_6][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_6][1][titulo]', ['type' => 'hidden','value' => 'Técnica']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_6][1][id]', ['type' => 'hidden']); ?>
 
@@ -1844,6 +1900,7 @@ echo $this->Form->select('detalles[op_2_12_7][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_7][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_7][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_7][0][id]', ['type' => 'hidden']); ?>
 
@@ -1864,6 +1921,7 @@ echo $this->Form->select('detalles[op_2_12_8][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_8][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_8][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_8][0][id]', ['type' => 'hidden']); ?>
 
@@ -1883,6 +1941,7 @@ echo $this->Form->select('detalles[op_2_12_9][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_9][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_9][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_9][0][id]', ['type' => 'hidden']); ?>
 
@@ -1904,6 +1963,7 @@ echo $this->Form->select('detalles[op_2_12_10][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_10][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_10][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_10][0][id]', ['type' => 'hidden']); ?>
 
@@ -1928,6 +1988,7 @@ echo $this->Form->select('detalles[op_2_12_11][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_11][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_11][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_11][0][id]', ['type' => 'hidden']); ?>
 
@@ -1950,6 +2011,7 @@ echo $this->Form->select('detalles[op_2_12_12][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_12_12][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_12_12][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_12_12][0][id]', ['type' => 'hidden']); ?>
 
@@ -1960,6 +2022,7 @@ echo $this->Form->select('detalles[op_2_12_12][0][detalle]', $options, [
 
 <div class="form-group divo row oculto" id="op_2_14" >
   <div class="col-md-12">
+    <label>Nombre generico</label>
     <div class="checkbox">
       <?php 
 $options = [
@@ -1994,6 +2057,7 @@ echo $this->Form->select('detalles[op_2_14][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_14][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_14][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_14][0][id]', ['type' => 'hidden']); ?>
 
@@ -2014,6 +2078,7 @@ echo $this->Form->select('detalles[op_2_15][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_15][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_15][0][titulo]', ['type' => 'hidden','value' => '']); ?>
 <?php echo $this->Form->control('detalles[op_2_15][0][id]', ['type' => 'hidden']); ?>
 
@@ -2057,6 +2122,7 @@ echo $this->Form->select('detalles[op_2_16][0][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_16][0][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_16][0][titulo]', ['type' => 'hidden','value' => 'Elementos']); ?>
 <?php echo $this->Form->control('detalles[op_2_16][0][id]', ['type' => 'hidden']); ?>
 
@@ -2083,6 +2149,7 @@ echo $this->Form->select('detalles[op_2_16][1][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_16][1][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_16][1][titulo]', ['type' => 'hidden','value' => 'Material']); ?>
 <?php echo $this->Form->control('detalles[op_2_16][1][id]', ['type' => 'hidden']); ?>
 
@@ -2105,6 +2172,7 @@ echo $this->Form->select('detalles[op_2_16][2][detalle]', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
+<?php echo $this->Form->text('detalles[op_2_16][2][otros]', ['class' => 'form-control','placeholder' => 'Otros']);?>
 <?php echo $this->Form->control('detalles[op_2_16][2][titulo]', ['type' => 'hidden','value' => 'Técnica']); ?>
 <?php echo $this->Form->control('detalles[op_2_16][2][id]', ['type' => 'hidden']); ?>
 
@@ -2139,7 +2207,7 @@ echo $this->Form->select('uso_tipo_uso_fun', $options, [
     'multiple' => 'checkbox'
 ]);
 ?>
-
+<?php echo $this->Form->text('uso_tipo_uso_otros', ['class' => 'form-control','placeholder' => 'Otros']);?>
     </div>
   </div>
   <div class="col-md-4">
@@ -2151,7 +2219,8 @@ $opciones = [
 'Ropón' => 'Ropón',
 'Otros' => 'Otros',
 ];                
-echo $this->Form->select('uso_funebres', $opciones, ['class' => 'form-control']);?> 
+echo $this->Form->select('uso_funebres', $opciones, ['class' => 'form-control']);?><br>
+<?php echo $this->Form->text('uso_funebres_otros', ['class' => 'form-control','placeholder' => 'Otros']);?> 
   </div>
 </div>
 <label>Medidas de la pieza (cm y gr)</label>
@@ -2613,7 +2682,7 @@ echo $this->Form->radio('uso_intervencion', $opciones);
 <?php $this->start('campo_js') ?>
     <script type="text/javascript">
 
-      function marc_forma_ingre(){
+      /*function marc_forma_ingre(){
         if($('input[name="marc_forma_ing[]"][value="Tipo de documento de entrega"]').prop('checked')){
           $('#iddiv-tipo-doc').show();
         }else{
@@ -2623,7 +2692,7 @@ echo $this->Form->radio('uso_intervencion', $opciones);
     	$('input[name="marc_forma_ing[]"]').on('click',function(){
     		marc_forma_ingre();
     	});
-      marc_forma_ingre();
+      marc_forma_ingre();*/
 
       function categoria_4(){
         $('#categoria_4_2_2_2').hide().prop("disabled", true);

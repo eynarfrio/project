@@ -99,9 +99,23 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       </tr>
                       <tr>
                         <td><label>Estilo</label></td>
-                        <td><?php echo implode(', ',unserialize($d_bienes->ides_estilo));?></td>
+                        <td>
+                          <?php 
+                          echo $d_bienes->ides_estilo;
+
+                          if(!empty($d_bienes->iden_estilo_otros)){
+                            echo ": ".$d_bienes->iden_estilo_otros;
+                          }
+                          ?>
+                            
+                          </td>
                         <td><label for="">Escuela</label></td>
-                        <td><?php echo $d_bienes->iden_escuela;?></td>
+                        <td><?php 
+                        echo $d_bienes->iden_escuela;
+                        if(!empty($d_bienes->iden_escuela_otros)){
+                            echo ": ".$d_bienes->iden_escuela_otros;
+                          }
+                        ?></td>
                       </tr>
                       <tr>
                         <td><label for="">Autor/atribución</label></td>
@@ -215,11 +229,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_1][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_1][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_1][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_1][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tecnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_1][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_1][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_1][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_1][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -230,17 +252,29 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_2][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_2][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_2][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_2][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tecnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_2][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_2][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_2][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_2][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                         <tr>
                           <td><label for="">Arte del dibujo</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_2][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_2][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_2][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_2][2][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td></td>
                           <td>
@@ -256,21 +290,37 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_3][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_3][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_3][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_3][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tipo de escultura</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_3][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_3][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_3][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_3][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                         <tr>
                           <td><label for="">Técnica 1</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_3][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_3][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_3][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_3][2][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Técnica 2</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_3][3][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_3][3][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_3][3][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_3][3][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -281,11 +331,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_4][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_4][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_4][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_4][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tecnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_4][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_4][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_4][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_4][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -296,11 +354,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_5][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_5][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_5][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_5][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tecnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_5][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_5][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_5][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_5][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -312,11 +378,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_6][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_6][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_6][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_6][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tecnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_6][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_6][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_6][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_6][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -328,17 +402,29 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_7][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_7][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_7][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_7][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Tecnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_7][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_7][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_7][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_7][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                         <tr>
                           <td><label for="">Arte</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_1_7][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_1_7][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_1_7][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_1_7][2][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for=""></label></td>
                           <td>
@@ -354,11 +440,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Bienes</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_1][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_1][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_1][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_1][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Material</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_1][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_1][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_1][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_1][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -369,11 +463,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Bienes</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_2_1][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_2_1][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_2_1][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_2_1][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Material</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_2_1][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_2_1][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_2_1][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_2_1][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -384,11 +486,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Bienes</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_2_2][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_2_2][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_2_2][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_2_2][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Material</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_2_2][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_2_2][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_2_2][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_2_2][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -400,7 +510,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td> </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_3][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_3][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_3][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_3][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td></td>
                           <td>
@@ -414,11 +528,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Bienes</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_4][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_4][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_4][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_4][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Material</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_4][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_4][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_4][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_4][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -428,7 +550,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_5][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_5][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_5][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_5][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -436,11 +562,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material para Biene de Joyas</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_5][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_5][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_5][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_5][1][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Técnica para Biene de Joyas</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_5][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_5][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_5][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_5][2][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -452,11 +586,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_6][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_6][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_6][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_6][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Técnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_6][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_6][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_6][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_6][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -467,11 +609,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_7][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_7][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_7][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_7][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Técnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_7][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_7][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_7][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_7][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -483,17 +633,29 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_8][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_8][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_8][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_8][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Clasificación</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_8][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_8][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_8][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_8][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                         <tr>
                           <td><label for="">Técnica</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_8][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_8][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_8][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_8][2][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for=""></label></td>
                           <td>
@@ -509,17 +671,29 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Persona encargada</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_9][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_9][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_9][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_9][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for="">Forma</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_9][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_9][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_9][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_9][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                         <tr>
                           <td><label for="">Técnica</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_9][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_9][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_9][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_9][2][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for=""></label></td>
                           <td>
@@ -534,7 +708,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_10][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_10][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_10][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_10][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for=""></label></td>
                           <td>
@@ -549,7 +727,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label for="">Material</label>  </td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_11][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_11][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_11][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_11][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label for=""></label></td>
                           <td>
@@ -563,7 +745,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_4][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_4][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_4][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_4][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -573,7 +759,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_5][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_5][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_5][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_5][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -584,11 +774,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label>Material</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_6][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_6][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_6][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_6][0][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label>Técnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_6][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_6][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_6][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_6][1][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -598,7 +796,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_7][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_7][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_7][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_7][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -608,7 +810,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_8][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_8][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_8][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_8][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -619,7 +825,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_9][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_9][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_9][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_9][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -630,7 +840,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_10][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_10][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_10][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_10][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -640,7 +854,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_11][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_11][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_11][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_11][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -650,7 +868,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_12_12][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_12_12][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_12_12][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_12_12][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -660,7 +882,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_14][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_14][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_14][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_14][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -670,7 +896,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <table class="latabla">
                         <tr>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_15][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_15][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_15][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_15][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -682,7 +912,11 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label>Elementos</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_16][0][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_16][0][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_16][0][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_16][0][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -690,11 +924,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label>Material</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_16][1][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_16][1][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_16][1][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_16][1][detalle]'];
+                              }
+                            ?>
                           </td>
                           <td><label>Técnica</label></td>
                           <td>
-                            <?php echo implode(', ',($d_des['detalles[op_2_16][2][detalle]'])) ;?>
+                            <?php echo implode(', ',($d_des['detalles[op_2_16][2][detalle]'])) ;
+                              if(!empty($d_des['detalles[op_2_16][2][detalle]'])){
+                                echo ": ".$d_des['detalles[op_2_16][2][detalle]'];
+                              }
+                            ?>
                           </td>
                         </tr>
                       </table>
@@ -707,11 +949,19 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <tr>
                           <td><label>Tipo de uso funerario</label></td>
                           <td>
-                            <?php echo implode(', ',unserialize($d_bienes->uso_tipo_uso_fun)) ;?>
+                            <?php echo implode(', ',unserialize($d_bienes->uso_tipo_uso_fun)) ;
+                            if(!empty($d_bienes->uso_tipo_uso_otros)){
+                              echo " : ".$d_bienes->uso_tipo_uso_otros;
+                            }
+                            ?>
                           </td>
                           <td><label>Fúnebres</label></td>
                           <td>
-                            <?php echo $d_bienes->uso_funebres ;?>
+                            <?php echo $d_bienes->uso_funebres ;
+                            if(!empty($d_bienes->uso_funebres_otros)){
+                              echo " : ".$d_bienes->uso_funebres_otros;
+                            }
+                            ?>
                           </td>
                         </tr>
                       </table>

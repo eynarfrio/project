@@ -14,7 +14,7 @@ class PaginasController extends AppController{
 
 		if(!empty($d_bienes)){
 			// $d_bienes = $bienesMuebles->get(4);
-			$this->request->data['ides_estilo'] =unserialize($d_bienes->ides_estilo);
+			// $this->request->data['ides_estilo'] =unserialize($d_bienes->ides_estilo);
 			$this->request->data['marc_forma_ing'] =unserialize($d_bienes->marc_forma_ing);
 			$this->request->data['marc_tipo_doc_entre'] =unserialize($d_bienes->marc_tipo_doc_entre);
 			$this->request->data['uso_tipo_uso_fun'] =unserialize($d_bienes->uso_tipo_uso_fun);
@@ -26,6 +26,7 @@ class PaginasController extends AppController{
 					$this->request->data["detalles[{$dd_detalle->grupo}][{$dd_detalle->clave}][detalle]"] = unserialize($dd_detalle->detalle);
 				}
 				$this->request->data["detalles[{$dd_detalle->grupo}][{$dd_detalle->clave}][id]"] = $dd_detalle->id;
+				$this->request->data["detalles[{$dd_detalle->grupo}][{$dd_detalle->clave}][otros]"] = $dd_detalle->otros;
 			}
 			// debug($this->request->data);exit;
 
@@ -72,8 +73,10 @@ class PaginasController extends AppController{
 		$d_bienes->iden_num_inven = $this->request->data['iden_num_inven'];
 		$d_bienes->iden_epoca = $this->request->data['iden_epoca'];
 		$d_bienes->iden_num_inven_ant = $this->request->data['iden_num_inven_ant'];
-		$d_bienes->ides_estilo = serialize($this->request->data['ides_estilo']);
+		$d_bienes->ides_estilo = $this->request->data['ides_estilo'];
 		$d_bienes->iden_escuela = $this->request->data['iden_escuela'];
+		$d_bienes->iden_estilo_otros = $this->request->data['iden_estilo_otros'];
+		$d_bienes->iden_escuela_otros = $this->request->data['iden_escuela_otros'];
 		$d_bienes->iden_autor_atrib = $this->request->data['iden_autor_atrib'];
 		$d_bienes->iden_origen_proce = $this->request->data['iden_origen_proce'];
 		$d_bienes->iden_obtencion = $this->request->data['iden_obtencion'];
@@ -82,6 +85,7 @@ class PaginasController extends AppController{
 
 
 		$d_bienes->loc_comunidad = $this->request->data['loc_comunidad'];
+		$d_bienes->loc_ciudad= $this->request->data['loc_ciudad'];
 		$d_bienes->loc_inmueble = $this->request->data['loc_inmueble'];
 		$d_bienes->loc_subcontenedor = $this->request->data['loc_subcontenedor'];
 		$d_bienes->loc_direccion = $this->request->data['loc_direccion'];
@@ -112,6 +116,8 @@ class PaginasController extends AppController{
 
 		$d_bienes->uso_tipo_uso_fun = serialize($this->request->data['uso_tipo_uso_fun']);
 		$d_bienes->uso_funebres = $this->request->data['uso_funebres'];
+		$d_bienes->uso_tipo_uso_otros = $this->request->data['uso_tipo_uso_otros'];
+		$d_bienes->uso_funebres_otros = $this->request->data['uso_funebres_otros'];
 		$d_bienes->uso_profundidad = $this->request->data['uso_profundidad'];
 		$d_bienes->uso_circunferencia = $this->request->data['uso_circunferencia'];
 		$d_bienes->uso_alto = $this->request->data['uso_alto'];
@@ -186,6 +192,7 @@ class PaginasController extends AppController{
 				}else{
 					$d_bienes_det->detalle = '';
 				}
+				$d_bienes_det->otros = $d_detalle['otros'];
 				$bienesDetalles->save($d_bienes_det);
 
 			}
@@ -282,7 +289,7 @@ class PaginasController extends AppController{
 
 		if(!empty($d_bienes)){
 			// $d_bienes = $bienesMuebles->get(4);
-			$this->request->data['ides_estilo'] =unserialize($d_bienes->ides_estilo);
+			// $this->request->data['ides_estilo'] =unserialize($d_bienes->ides_estilo);
 			$this->request->data['marc_forma_ing'] =unserialize($d_bienes->marc_forma_ing);
 			$this->request->data['marc_tipo_doc_entre'] =unserialize($d_bienes->marc_tipo_doc_entre);
 			$this->request->data['uso_tipo_uso_fun'] =unserialize($d_bienes->uso_tipo_uso_fun);
@@ -295,6 +302,7 @@ class PaginasController extends AppController{
 				}else{
 					$this->request->data["detalles[{$dd_detalle->grupo}][{$dd_detalle->clave}][detalle]"] = [];
 				}
+				$this->request->data["detalles[{$dd_detalle->grupo}][{$dd_detalle->clave}][otros]"] = $dd_detalle->otros;
 
 			}
 			// debug($this->request->data['detalles[op_1_2][0][detalle]']);exit;
