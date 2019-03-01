@@ -188,20 +188,14 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                         <td><label for="">Otros</label></td>
                         <td><?php echo $d_bienes->marc_forma_ing_texto;?></td>
                       </tr>
-                      <?php 
-                      $vector = [];
-                      if(!empty($d_bienes->marc_forma_ing)){
-                        $vector = unserialize($d_bienes->marc_forma_ing);
-                      }
-                      if(in_array("Tipo de documento de entrega", $vector)):
-                      ?>
+                      
                       <tr>
                         <td><label for="">8: Tipo de documento de entrega</label>  </td>
                         <td><?php echo implode(', ',$d_bienes->marc_tipo_doc_entre);?></td>
                         <td><label for="">Otros</label></td>
                         <td><?php echo $d_bienes->marc_tipo_doc_entre_otros;?></td>
                       </tr>
-                    <?php endif;?>
+                    
                     </table>
                   </div>
                 </div>
