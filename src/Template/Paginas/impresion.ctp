@@ -184,7 +184,7 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       </tr>
                       <tr>
                         <td><label for="">Forma de ingreso</label>  </td>
-                        <td><?php echo implode(', ',unserialize($d_bienes->marc_forma_ing));?></td>
+                        <td><?php echo implode(', ',$d_bienes->marc_forma_ing);?></td>
                         <td><label for="">Otros</label></td>
                         <td><?php echo $d_bienes->marc_forma_ing_texto;?></td>
                       </tr>
@@ -197,7 +197,7 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       ?>
                       <tr>
                         <td><label for="">8: Tipo de documento de entrega</label>  </td>
-                        <td><?php echo implode(', ',unserialize($d_bienes->marc_tipo_doc_entre));?></td>
+                        <td><?php echo implode(', ',$d_bienes->marc_tipo_doc_entre);?></td>
                         <td><label for="">Otros</label></td>
                         <td><?php echo $d_bienes->marc_tipo_doc_entre_otros;?></td>
                       </tr>
