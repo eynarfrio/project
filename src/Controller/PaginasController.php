@@ -290,10 +290,11 @@ class PaginasController extends AppController{
 		if(!empty($d_bienes)){
 			// $d_bienes = $bienesMuebles->get(4);
 			// $this->request->data['ides_estilo'] =unserialize($d_bienes->ides_estilo);
-			$this->request->data['marc_forma_ing'] =unserialize($d_bienes->marc_forma_ing);
-			$this->request->data['marc_tipo_doc_entre'] =unserialize($d_bienes->marc_tipo_doc_entre);
-			$this->request->data['uso_tipo_uso_fun'] =unserialize($d_bienes->uso_tipo_uso_fun);
+			$d_bienes->marc_forma_ing = empty(unserialize($d_bienes->marc_forma_ing)) ? [] : unserialize($d_bienes->marc_forma_ing);
+			$d_bienes->marc_tipo_doc_entre = empty(unserialize($d_bienes->marc_tipo_doc_entre)) ? [] : unserialize($d_bienes->marc_tipo_doc_entre);
+			$d_bienes->uso_tipo_uso_fun = empty(unserialize($d_bienes->uso_tipo_uso_fun)) ? [] : unserialize($d_bienes->uso_tipo_uso_fun);
 
+			// debug($d_bienes->marc_forma_ing);exit;
 			$d_bienes_detalles = $bienesDetalles->find()->where(['bienes_mueble_id' => $d_bienes->id])->all();
 			foreach ($d_bienes_detalles as $key => $dd_detalle) {
 				# code...
