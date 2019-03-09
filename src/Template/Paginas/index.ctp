@@ -15,6 +15,20 @@ $this->Form->templates($myTemplates);
   .oculto{
     display: none;
   }
+
+
+  select[name='car_categoria_1']{
+    color: #0095ff;
+    border-color: #0095ff;
+  }
+  select[name='car_categoria_2']{
+    color: #ffc000;
+    border-color: #ffc000;
+  }
+  select[name='car_categoria_3']{
+    color: green;
+    border-color: green;
+  }
 </style>
     <section class="content-header">
       <h1>
@@ -1395,7 +1409,39 @@ echo $this->Form->select('detalles[op_2_5][0][detalle]', $options, [
 
     </div>
   </div>
+
   <div id="div_util_5" class="oculto">
+    <div class="col-md-12">
+      <div class="form-group">
+        <?php 
+$options = [
+'Anillo' => 'Anillo',
+'Arete' => 'Arete',
+'Bastones' => 'Bastones',
+'Brazalete' => 'Brazalete',
+'Broches' => 'Broches',
+'Cadena' => 'Cadena',
+'Camafeo' => 'Camafeo',
+'Collar' => 'Collar',
+'Cruz' => 'Cruz',
+'Diadema' => 'Diadema',
+'Esclava' => 'Esclava',
+'Fabula' => 'Fabula',
+'Mancuernillas' => 'Mancuernillas',
+'Milagros: pie,ojo,pulmon, dientes, corazon, mano' => 'Milagros: pie,ojo,pulmon, dientes, corazon, mano',
+'Pendientes' => 'Pendientes',
+'Prendedores' => 'Prendedores',
+'Otros' => 'Otros',
+];
+echo $this->Form->select('detalles[op_2_5][3][detalle]', $options, [
+    'class' => 'form-control'
+]);
+?>
+<?php echo $this->Form->control('detalles[op_2_5][3][titulo]', ['type' => 'hidden','value' => '']); ?>
+<?php echo $this->Form->control('detalles[op_2_5][3][id]', ['type' => 'hidden']); ?>
+<?php echo $this->Form->control('detalles[op_2_5][3][otros]', ['type' => 'hidden']); ?>
+      </div>
+    </div>
     <div class="col-md-6">
     <label>Material para Biene de Joyas</label>
     <div class="checkbox">
@@ -2662,18 +2708,20 @@ echo $this->Form->radio('uso_intervencion', $opciones);
           </div>
   </div>
 </div>
+<?php echo $this->Form->control('imprimirm', ['type' => 'hidden' ,'id' => 'imprimirm','value' => 0]); ?>
 <div class="row">
   <div class="col-md-6">
     <button class="btn btn-success btn-block" type="submit">GUARDAR</button>
   </div>
   <div class="col-md-6">
     <?php if(!empty($d_bienes->id)):?>
-    <a class="btn btn-primary btn-block" href="<?php echo $this->Url->build([
+    <!-- <a class="btn btn-primary btn-block" href="<?php echo $this->Url->build([
     'controller' => 'Paginas',
     'action' => 'impresion',
     $d_bienes->id_reg_patrimonio
-]);?>">IMPRIMIR</a>
+]);?>">IMPRIMIR</a> -->
     <?php endif;?>
+    <button class="btn btn-primary btn-block" onclick="$('#imprimirm').val(1);" type="submit">GUARDAR E IMPRIMIR</button>
   </div>
 </div>
 <?php echo $this->Form->end(); ?>
@@ -2738,7 +2786,7 @@ echo $this->Form->radio('uso_intervencion', $opciones);
 
         }
         if($('#categoria_4_2').val() == "Uso funerario"){
-          $('#categoria_4_2_3').show().prop("disabled", false);
+          // $('#categoria_4_2_3').show().prop("disabled", false);
           $('#div_uso_fune').show();
         }
         $('.divo').hide();

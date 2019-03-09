@@ -254,8 +254,11 @@ class PaginasController extends AppController{
 			}
 			move_uploaded_file($_FILES["video2"]["tmp_name"], $target_file);
 		}
-
-		$this->redirect($this->referer());
+		if (!empty($this->request->data['imprimirm']) && $this->request->data['imprimirm'] == '1') {
+			$this->redirect(['action' => 'impresion',$this->request->data['id_reg_patrimonio']]);
+		}else{
+			$this->redirect($this->referer());
+		}
 
 	}
 

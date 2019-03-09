@@ -550,6 +550,13 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                               }
                             ?>
                           </td>
+                          <td>
+                            <?php echo $d_des['detalles[op_2_5][3][detalle]'] ;
+                              if(!empty($d_des['detalles[op_2_5][3][otros]'])){
+                                echo ": ".$d_des['detalles[op_2_5][3][otros]'];
+                              }
+                            ?>
+                          </td>
                         </tr>
                       </table>
                       <table class="latabla">
