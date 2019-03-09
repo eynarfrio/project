@@ -1357,7 +1357,7 @@ echo $this->Form->select('detalles[op_2_4][1][detalle]', $options, [
 </div>
 <style type="text/css">
   label[for='detalles-op-2-5-0-detalle-joyas']{
-    color: black;
+    color: blue;
     font-weight: bold;
   }
   label[for='uso-nivel-integridad-menos-10%']{

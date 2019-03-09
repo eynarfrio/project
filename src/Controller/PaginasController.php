@@ -284,7 +284,7 @@ class PaginasController extends AppController{
 		$d_segundo = $SegundoNivel->find()->where(['id_reg_patrimonio' => $idPatrimonio])->first();
 		$d_geo = $Georeferencia->find()->where(['id_reg_patrimonio' => $idPatrimonio])->first();
 
-		/*debug($d_geo);
+		/*debug($d_control);
 		exit;*/
 
 		if(!empty($d_bienes)){

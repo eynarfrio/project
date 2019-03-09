@@ -84,7 +84,7 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                     </table>
 
                     <div style="width: 100%;" align="center">
-                      <img style="width: 250px;" src="/fotos/<?php echo $d_regPatrimonio->imagen ?>">
+                      <img style="width: 250px;" src="/proyecto_3/sistema/fotos/<?php echo $d_regPatrimonio->imagen ?>">
                     </div>
                     <div class="form-group">
                       <label>Descripción De La Imagen</label><br>
@@ -1160,7 +1160,7 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <tr>
                         <td><label>Entidad Investigadora</label></td>
                         <td>
-                          <?php echo $d_control->ent_inves;?>
+                          <?php echo isset($d_control->ent_inves) ? $d_control->ent_inves : "";?>
                         </td>
                       </tr>
                     </table>
@@ -1179,27 +1179,27 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
                       <tr>
                         <td>
                           <label>Nombre</label><br>
-                    <?php echo $d_control->registrado_por;?>
+                    <?php echo isset($d_control->registrado_por) ? $d_control->registrado_por : "";?>
                         </td>
                         <td>
                           <label>Fecha</label><br>
-                    <?php echo $d_control->f_registro;?>
+                    <?php echo isset($d_control->f_registro) ? $d_control->f_registro : "";?>
                         </td>
                         <td>
                           <label>Nombre</label><br>
-                    <?php echo $d_control->revisado_por;?>
+                    <?php echo isset($d_control->revisado_por) ? $d_control->revisado_por : "" ;?>
                         </td>
                         <td>
                           <label>Fecha</label><br>
-                    <?php echo $d_control->f_revision;?>
+                    <?php echo isset($d_control->f_revision) ? $d_control->f_revision: "";?>
                         </td>
                         <td>
                           <label>Nombre</label><br>
-                    <?php echo $d_control->aprobado_por;?>
+                    <?php echo isset($d_control->aprobado_por) ? $d_control->aprobado_por : "";?>
                         </td>
                         <td>
                           <label>Fecha</label><br>
-                    <?php echo $d_control->f_aprovacion;?>
+                    <?php echo isset($d_control->f_aprovacion) ? $d_control->f_aprovacion : "";?>
                         </td>
                       </tr>
                     </table>
@@ -1533,8 +1533,8 @@ FICHA DE INSCRIPCIÓN DE INFORMACIÓN ESPECÍFICA
         
 
     </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS9_jGriuCboWWnVe5F9pfuWRgRoRgquU&callback=localize"
+<!--
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOnOwqmtrnEf-ABn6g3yfLn_x7Sb1-Af4&callback=localize"
     async defer></script>
 
           
@@ -1597,8 +1597,36 @@ var y='-68.6966088';*/
 
     $( document ).ready(function() {
         console.log( "ready!" );
-        // print();
+        //print();
     });
  </script>
+-->
+<script>
 
+      function initMap() {
+        var myLatLng = {lat: <?php echo $d_geo->x;?>, lng: <?php echo $d_geo->Y;?>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+
+      }
+
+$( document ).ready(function() {
+        console.log( "ready!" );
+        //print();
+setTimeout(function(){ print(); }, 1000);
+    });
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOnOwqmtrnEf-ABn6g3yfLn_x7Sb1-Af4&callback=initMap">
+    </script>
+	
 <?php $this->end() ?>
