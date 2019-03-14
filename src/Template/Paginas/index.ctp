@@ -1384,7 +1384,7 @@ echo $this->Form->select('detalles[op_2_4][1][detalle]', $options, [
   }
 </style>
 <div class="form-group divo row oculto" id="op_2_5" >
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="checkbox">
       <?php 
 $options = [
@@ -1409,9 +1409,7 @@ echo $this->Form->select('detalles[op_2_5][0][detalle]', $options, [
 
     </div>
   </div>
-
-  <div id="div_util_5" class="oculto">
-    <div class="col-md-12">
+  <div class="col-md-4" id="div_util_5_op" class="oculto">
       <div class="form-group">
         <?php 
 $options = [
@@ -1442,6 +1440,9 @@ echo $this->Form->select('detalles[op_2_5][3][detalle]', $options, [
 <?php echo $this->Form->control('detalles[op_2_5][3][otros]', ['type' => 'hidden']); ?>
       </div>
     </div>
+
+  <div id="div_util_5" class="oculto">
+    
     <div class="col-md-6">
     <label>Material para Biene de Joyas</label>
     <div class="checkbox">
@@ -2922,8 +2923,10 @@ echo $this->Form->radio('uso_intervencion', $opciones);
       function detalles_joyas(){
         if($('input[name="detalles[op_2_5][0][detalle][]"][value="Joyas"]').prop('checked')){
           $('#div_util_5').show();
+          $('#div_util_5_op').show();
         }else{
           $('#div_util_5').hide();
+          $('#div_util_5_op').hide();
         }
       }
       $('input[name="detalles[op_2_5][0][detalle][]"][value="Joyas"]').on('click',function(){
